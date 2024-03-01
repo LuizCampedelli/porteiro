@@ -1,4 +1,4 @@
-INSTANCE_ID_PORTEIRO=i-03c101d76e63c6f93
+INSTANCE_ID_PORTEIRO=EC2_INSTANCE_ID
 IP_PORTEIRO=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID_PORTEIRO
 --query "Reservations[].Instances[].PublicIpAddress" --profile cliente-porteiro
 --region us-east-1 --output json | grep -vE '\[|\]' | awk -F'"' '{ print $2 }')
